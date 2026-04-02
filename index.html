@@ -14,13 +14,14 @@
       --border: #2a3768;
       --accent: #7cc4ff;
       --accent-2: #8ef0c7;
+      --chip: rgba(124,196,255,.12);
     }
     * { box-sizing: border-box; }
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:linear-gradient(180deg,var(--bg),#0f1530 55%,var(--bg));color:var(--text)}
-    .wrap{max-width:1040px;margin:0 auto;padding:36px 20px 60px}
+    .wrap{max-width:1080px;margin:0 auto;padding:36px 20px 60px}
     .hero,.card{background:linear-gradient(135deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:18px}
     .hero{padding:26px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:20px}
     .card{padding:18px}
     .muted{color:var(--muted)}
     h1,h2,h3{line-height:1.15} h1{margin:0 0 8px} h3{margin:0 0 8px} p{line-height:1.55}
@@ -29,22 +30,24 @@
     .btn-primary{background:#7cc4ff;color:#081122}
     .btn-secondary{background:rgba(124,196,255,.1);color:#cfe0ff}
     .note{margin-top:20px;padding:14px 16px;background:#182247;border-left:4px solid #7cc4ff;border-radius:10px}
-    .path{display:block;margin-top:10px;padding:10px 12px;background:#0f1530;border-radius:10px;color:#8ef0c7;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem;word-break:break-all}
-    a.inline{color:#8ef0c7}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--chip);color:#cfe0ff;border:1px solid rgba(124,196,255,.18);font-size:.88rem}
+    .trace{margin-top:12px;font-size:.95rem}
+    a{color:var(--accent)}
   </style>
 </head>
 <body>
   <div class="wrap">
     <section class="hero">
-      <h1>CGT Bulletins Index</h1>
-      <p class="muted">April 1, 2026 • Open web + Endpoints News + GlobalData</p>
-      <p>This page now contains live clickable links to each bulletin.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="industry.html">Open main industry bulletin</a>
-        <a class="btn btn-secondary" href="roslinct.html">Open RoslinCT strategy bulletin</a>
+      <h1>CGT Bulletins</h1>
+      <p class="muted">Updated bulletin set for CGT market intelligence and RoslinCT strategy.</p>
+      <div class="meta">
+        <span class="chip">Release date: April 1, 2026</span>
+        <span class="chip">Coverage: Open web + Endpoints News + GlobalData</span>
       </div>
+      <p>Choose the format you want: full market bulletin, executive summary, visual dashboard, or RoslinCT-specific strategy memo.</p>
       <div class="note">
-        If you want a faster skim, use the executive or visual versions below.
+        Each bulletin includes a release date and a traceability section with source references.
       </div>
     </section>
 
@@ -52,26 +55,30 @@
       <div class="card">
         <h3>1) Main CGT Industry Bulletin</h3>
         <p>Integrated market bulletin combining premium and open sources.</p>
+        <div class="meta"><span class="chip">Release date: April 1, 2026</span></div>
         <div class="actions"><a class="btn btn-primary" href="industry.html">Open bulletin</a></div>
-        <a class="inline path" href="industry.html">industry.html</a>
+        <div class="trace"><a href="industry.html#traceability">View sources & traceability</a></div>
       </div>
       <div class="card">
         <h3>2) Executive Version</h3>
         <p>Short, leadership-friendly summary.</p>
+        <div class="meta"><span class="chip">Release date: April 1, 2026</span></div>
         <div class="actions"><a class="btn btn-primary" href="executive.html">Open bulletin</a></div>
-        <a class="inline path" href="executive.html">executive.html</a>
+        <div class="trace"><a href="executive.html#traceability">View sources & traceability</a></div>
       </div>
       <div class="card">
         <h3>3) Visual Version</h3>
         <p>Cleaner sections with simple charts and scorecards.</p>
+        <div class="meta"><span class="chip">Release date: April 1, 2026</span></div>
         <div class="actions"><a class="btn btn-primary" href="visual.html">Open bulletin</a></div>
-        <a class="inline path" href="visual.html">visual.html</a>
+        <div class="trace"><a href="visual.html#traceability">View sources & traceability</a></div>
       </div>
       <div class="card">
         <h3>4) RoslinCT Strategy Bulletin</h3>
-        <p>RoslinCT-focused premium strategy memo and implications.</p>
+        <p>RoslinCT-focused strategy memo with commercial implications and messaging recommendations.</p>
+        <div class="meta"><span class="chip">Release date: April 1, 2026</span></div>
         <div class="actions"><a class="btn btn-primary" href="roslinct.html">Open bulletin</a></div>
-        <a class="inline path" href="roslinct.html">roslinct.html</a>
+        <div class="trace"><a href="roslinct.html#traceability">View sources & traceability</a></div>
       </div>
     </div>
   </div>
