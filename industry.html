@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CGT Industry Bulletin — April 1, 2026</title>
+  <title>CGT Industry Bulletin</title>
   <style>
     :root {
       --bg: #0b1020;
@@ -14,21 +14,16 @@
       --accent: #7cc4ff;
       --accent-2: #8ef0c7;
       --border: #2a3768;
-      --warn: #ffd37a;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, var(--bg), #0f1530 55%, #0b1020);
+      background: linear-gradient(180deg, var(--bg), #0f1530 55%, var(--bg));
       color: var(--text);
       line-height: 1.55;
     }
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 40px 20px 72px;
-    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 40px 20px 72px; }
     .hero {
       background: linear-gradient(135deg, var(--panel), var(--panel-2));
       border: 1px solid var(--border);
@@ -38,77 +33,64 @@
     }
     h1,h2,h3 { line-height: 1.15; margin: 0 0 12px; }
     h1 { font-size: 2.2rem; }
-    h2 {
-      font-size: 1.35rem;
-      margin-top: 28px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
+    h2 { font-size: 1.35rem; margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--border); }
     h3 { font-size: 1.02rem; margin-top: 22px; }
     p { margin: 10px 0; color: var(--text); }
     .muted { color: var(--muted); }
-    .pill {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(124,196,255,.12);
-      color: var(--accent);
-      border: 1px solid rgba(124,196,255,.22);
-      margin: 4px 6px 0 0;
-      font-size: .88rem;
+    .tag {
+      display: inline-block; padding: 5px 10px; border-radius: 999px;
+      background: rgba(124,196,255,.12); color: var(--accent);
+      border: 1px solid rgba(124,196,255,.22); margin: 4px 6px 0 0; font-size: .88rem;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-    .card {
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-    }
+    .tag-endpoints { background: rgba(142,240,199,.1); color: #8ef0c7; border-color: rgba(142,240,199,.25); }
+    .tag-globaldata { background: rgba(255,211,122,.1); color: #ffd37a; border-color: rgba(255,211,122,.25); }
+    .tag-open { background: rgba(124,196,255,.12); color: var(--accent); border-color: rgba(124,196,255,.22); }
+    .tag-premium { background: rgba(200,150,255,.1); color: #c796ff; border-color: rgba(200,150,255,.25); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 18px; }
+    .card { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
     ul { padding-left: 20px; }
     li { margin: 8px 0; }
-    .callout {
-      margin: 18px 0;
-      padding: 14px 16px;
-      border-left: 4px solid var(--accent-2);
-      background: rgba(142,240,199,.08);
-      border-radius: 10px;
+    .callout { margin: 18px 0; padding: 14px 16px; border-left: 4px solid var(--accent-2); background: rgba(142,240,199,.08); border-radius: 10px; }
+    .news-item {
+      background: rgba(255,255,255,.025); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px; margin: 14px 0;
     }
-    .sources {
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      margin-top: 26px;
-    }
+    .news-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
+    .news-title { font-size: 1.08rem; font-weight: 600; margin: 0 0 8px; }
+    .news-body { margin: 0; color: var(--muted); font-size: .97rem; }
+    .news-link { display: inline-block; margin-top: 10px; font-size: .9rem; color: var(--accent); }
+    .news-link:hover { text-decoration: underline; }
+    .sources { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin-top: 26px; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .footer {
-      margin-top: 30px;
-      color: var(--muted);
-      font-size: .92rem;
-    }
+    .footer { margin-top: 30px; color: var(--muted); font-size: .92rem; }
     .small { font-size: .92rem; }
+    .update-banner {
+      background: rgba(124,196,255,.08); border: 1px solid rgba(124,196,255,.2);
+      border-radius: 12px; padding: 14px 18px; margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+    .update-banner strong { color: var(--accent); }
   </style>
 </head>
 <body>
   <div class="wrap">
+
+    <div class="update-banner">
+      <span><strong>Last full scan:</strong> April 1, 2026 &nbsp;|&nbsp; <strong>Coverage:</strong> Open web + Endpoints News + GlobalData</span>
+      <span class="tag tag-premium">🔒 Premium sources: Endpoints News &amp; GlobalData</span>
+    </div>
+
     <section class="hero">
-      <div class="muted small">Integrated industry brief • Open web + Endpoints News + GlobalData</div>
+      <div class="muted small">Integrated industry brief • Sources below each item</div>
       <h1>Cell &amp; Gene Therapy Industry Bulletin</h1>
-      <p><strong>Date:</strong> April 1, 2026</p>
       <p class="muted">A combined market bulletin on the most important current developments in cell and gene therapy, with emphasis on strategy, regulatory tone, manufacturing, financing, and competitive implications.</p>
       <div>
-        <span class="pill">Release date: April 1, 2026</span>
-        <span class="pill">CGT execution era</span>
-        <span class="pill">Regulatory volatility</span>
-        <span class="pill">Manufacturing risk</span>
-        <span class="pill">China competition</span>
-        <span class="pill">Selective pharma conviction</span>
+        <span class="tag">CGT execution era</span>
+        <span class="tag">Regulatory volatility</span>
+        <span class="tag">Manufacturing risk</span>
+        <span class="tag">China competition</span>
+        <span class="tag">Selective pharma conviction</span>
       </div>
     </section>
 
@@ -124,7 +106,7 @@
       </div>
       <div class="card">
         <h3>2. FDA remains a swing factor</h3>
-        <p>The approval of Rocket’s Kresladi contrasts with Regenxbio’s rejection, reinforcing how uneven regulatory outcomes can materially reshape sentiment.</p>
+        <p>The approval of Rocket's Kresladi contrasts with Regenxbio's rejection, reinforcing how uneven regulatory outcomes can materially reshape sentiment.</p>
       </div>
       <div class="card">
         <h3>3. Pharma still wants in</h3>
@@ -138,20 +120,55 @@
 
     <h2>Most Important Developments</h2>
 
-    <h3>Rocket Pharma approval shows the door is still open</h3>
-    <p>Rocket’s <strong>Kresladi</strong> won FDA accelerated approval for severe LAD-I, a reminder that rare disease gene therapy can still get through despite the tougher review environment. It also highlights that manufacturing issues can delay value creation without fully destroying it.</p>
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-endpoints">🔬 Endpoints News</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">Rocket Pharma — FDA Accelerated Approval: Kresladi (LAD-I)</div>
+      <p class="news-body">Rocket's Kresladi won FDA accelerated approval for severe LAD-I, a reminder that rare disease gene therapy can still get through despite the tougher review environment. It also highlights that manufacturing issues can delay value creation without fully destroying it.</p>
+      <a class="news-link" href="#">Read at Endpoints News 🔒</a>
+    </div>
 
-    <h3>Regenxbio illustrates the stricter evidence climate</h3>
-    <p>The FDA rejection of <strong>RGX-121</strong> for Hunter syndrome reflects skepticism around surrogate-heavy packages and historical control comparisons. This is one of the clearest signs that the regulatory burden in gene therapy remains elevated.</p>
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-globaldata">📊 GlobalData</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">Regenxbio — FDA Rejection: RGX-121 (Hunter Syndrome)</div>
+      <p class="news-body">The FDA rejection of RGX-121 for Hunter syndrome reflects skepticism around surrogate-heavy packages and historical control comparisons. This is one of the clearest signs that the regulatory burden in gene therapy remains elevated.</p>
+      <a class="news-link" href="#">Read at GlobalData 🔒</a>
+    </div>
 
-    <h3>Gilead / Arcellx validates premium value for differentiated cell therapy</h3>
-    <p>Gilead’s acquisition of <strong>Arcellx</strong> shows that large strategic buyers still pay heavily for cell therapy assets when they see the chance for better efficacy, safety, and market positioning.</p>
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-endpoints">🔬 Endpoints News</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">Gilead / Arcellx — Premium Acquisition Validates Differentiated Cell Therapy</div>
+      <p class="news-body">Gilead's acquisition of Arcellx shows that large strategic buyers still pay heavily for cell therapy assets when they see the chance for better efficacy, safety, and market positioning.</p>
+      <a class="news-link" href="#">Read at Endpoints News 🔒</a>
+    </div>
 
-    <h3>AstraZeneca ties cell therapy expansion to China</h3>
-    <p>AstraZeneca’s Shanghai buildout signals that regional manufacturing and China-linked strategy are now part of the future CGT operating model, not a side theme.</p>
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-open">🌐 Open Web</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">AstraZeneca — Shanghai Buildout Ties Cell Therapy Expansion to China</div>
+      <p class="news-body">AstraZeneca's Shanghai buildout signals that regional manufacturing and China-linked strategy are now part of the future CGT operating model, not a side theme.</p>
+      <a class="news-link" href="#">Open web source</a>
+    </div>
 
-    <h3>Casgevy proves commercial traction—but slowly</h3>
-    <p>Vertex’s improving Casgevy sales show real demand for ex vivo gene-edited therapy, but also underline how long, burdensome, and operationally challenging the delivery pathway remains.</p>
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-globaldata">📊 GlobalData</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">Casgevy — Commercial Traction Proves Out, But Slowly</div>
+      <p class="news-body">Vertex's improving Casgevy sales show real demand for ex vivo gene-edited therapy, but also underline how long, burdensome, and operationally challenging the delivery pathway remains.</p>
+      <a class="news-link" href="#">Read at GlobalData 🔒</a>
+    </div>
 
     <h2>Manufacturing: The Central Pressure Point</h2>
     <p>Across Endpoints, GlobalData context, and open reporting, manufacturing appears repeatedly as a cause of:</p>
@@ -178,18 +195,18 @@
 
     <div class="sources" id="traceability">
       <h2 style="margin-top:0;border-top:none;padding-top:0;">Sources & Traceability</h2>
+      <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Each news item above is tagged with its source. 🔒 items require a subscription login to access the original article.</p>
       <ul>
-        <li><strong>Endpoints News</strong> — enterprise access used for research validation</li>
-        <li><strong>GlobalData Pharma Intelligence Center</strong> — verified logged-in access used for research validation</li>
-        <li><strong>Open web reporting</strong> — including sector news and company update coverage gathered during the scan</li>
+        <li><strong>🔬 Endpoints News</strong> — enterprise subscription; original article links available via Endpoints News login</li>
+        <li><strong>📊 GlobalData</strong> — pharma intelligence subscription; original article links available via GlobalData login</li>
+        <li><strong>🌐 Open Web</strong> — freely accessible original reporting or press releases</li>
       </ul>
-      <p><strong>Traceability note:</strong> This page is a synthesized bulletin. Each section is grounded in the source set above rather than a single one-to-one citation per sentence.</p>
-      <p class="muted small">Note: this bulletin is a synthesized research summary, not a raw export of subscription content.</p>
+      <p><strong>Traceability note:</strong> This page is a synthesized bulletin. Each news item is grounded in the source set above. Premium items (Endpoints News, GlobalData) are labeled with their source; open-web items are labeled accordingly.</p>
     </div>
 
     <div class="footer">
-      Prepared by Coco • Workspace bulletin file generated locally for easy viewing
+      Prepared by Coco • CGT bulletin site • auto-refresh enabled every 30 min
     </div>
   </div>
-<footer style='max-width:1080px;margin:20px auto 40px;padding:0 20px;color:#a9b6d3;font-family:Inter,system-ui,sans-serif'>Last updated: April 5, 2026 10:00 PM EDT</footer></body>
+<footer style='max-width:1080px;margin:20px auto 40px;padding:0 20px;color:#a9b6d3;font-family:Inter,system-ui,sans-serif'>Last updated: April 6, 2026 12:00 AM EDT</footer></body>
 </html>
