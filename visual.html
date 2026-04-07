@@ -1,1 +1,201 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'/><meta name='viewport' content='width=device-width, initial-scale=1'/><title>CGT Visual Bulletin</title><style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:linear-gradient(180deg,#09101e,#0d1630);color:#eef3ff}.wrap{max-width:1100px;margin:0 auto;padding:34px 20px 60px}.hero,.card{background:#121936;border:1px solid #2a3768;border-radius:18px}.hero{padding:26px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}.card{padding:18px}.muted{color:#a9b6d3}h1,h2,h3{line-height:1.15}h2{margin-top:26px}.bar{height:12px;background:#1a2348;border-radius:999px;overflow:hidden;margin:8px 0 4px}.fill{height:100%}.r{background:#ff8b8b}.y{background:#ffd37a}.g{background:#8ef0c7}.b{background:#7cc4ff}.label{display:flex;justify-content:space-between;font-size:.92rem;color:#cfe0ff}.small{font-size:.92rem}ul{padding-left:20px}li{margin:8px 0}</style></head><body><div class='wrap'><section class='hero'><div class='muted small'>Visual Version • April 1, 2026</div><h1>Cell & Gene Therapy Market Dashboard</h1><p class='muted'>Simple visual readout from combined open-web, Endpoints, and GlobalData research.</p><p class='muted'><strong>Release date:</strong> April 1, 2026</p></section><h2>Market Scorecard</h2><div class='grid'><div class='card'><h3>Strategic Interest</h3><div class='label'><span>High</span><span>8.5/10</span></div><div class='bar'><div class='fill g' style='width:85%'></div></div><p class='small'>Big pharma continues to invest selectively in differentiated cell therapy and genetic medicine assets.</p></div><div class='card'><h3>Regulatory Predictability</h3><div class='label'><span>Low-Medium</span><span>4/10</span></div><div class='bar'><div class='fill r' style='width:40%'></div></div><p class='small'>Approvals still happen, but reversals, holds, and inconsistent readouts keep uncertainty elevated.</p></div><div class='card'><h3>Manufacturing Readiness</h3><div class='label'><span>Mixed</span><span>5/10</span></div><div class='bar'><div class='fill y' style='width:50%'></div></div><p class='small'>Manufacturing remains a core bottleneck for approval timing, product launch, and supply continuity.</p></div><div class='card'><h3>Commercial Scalability</h3><div class='label'><span>Developing</span><span>5.5/10</span></div><div class='bar'><div class='fill b' style='width:55%'></div></div><p class='small'>Commercial traction is real, but delivery complexity still constrains growth curves.</p></div></div><h2>What’s moving the market</h2><div class='grid'><div class='card'><h3>Regulatory</h3><ul><li>Rocket approval</li><li>Regenxbio rejection</li><li>Rare disease evidence pressure</li></ul></div><div class='card'><h3>Deals</h3><ul><li>Gilead / Arcellx</li><li>Lilly genetic medicine expansion</li><li>Selective premium valuations</li></ul></div><div class='card'><h3>Manufacturing</h3><ul><li>Orca Bio delay tied to filing more manufacturing data</li><li>Supply constraints matter commercially</li><li>CMC reliability is strategic</li></ul></div><div class='card'><h3>Geography</h3><ul><li>AstraZeneca Shanghai buildout</li><li>China as competitor + partner</li><li>Regional footprint growing in importance</li></ul></div></div><h2>Most Important Visual Takeaway</h2><div class='card'><p><strong>The sector is healthy enough to attract strategic investment, but unhealthy enough operationally that execution quality now determines winners and losers.</strong></p></div><h2 id='traceability'>Sources & Traceability</h2><div class='card'><ul><li><strong>Endpoints News</strong> — used for current event validation</li><li><strong>GlobalData</strong> — used for market context and company intelligence</li><li><strong>Open web reporting</strong> — used to triangulate recent sector developments</li></ul><p class='small'>This visual dashboard is a synthesized summary built from the broader research set.</p></div></div><footer style='max-width:1080px;margin:20px auto 40px;padding:0 20px;color:#a9b6d3;font-family:Inter,system-ui,sans-serif'>Last updated: April 7, 2026 08:03 AM EDT</footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CGT Visual Bulletin — Market Dashboard</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121936;
+      --panel-2: #182247;
+      --text: #eef3ff;
+      --muted: #a9b6d3;
+      --border: #2a3768;
+      --accent: #7cc4ff;
+      --accent-2: #8ef0c7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #09101e, #0d1630 55%, #09101e);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 20px 72px; }
+    .hero {
+      background: linear-gradient(135deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    h1,h2,h3 { line-height: 1.15; margin: 0 0 12px; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.25rem; margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--border); }
+    h3 { font-size: 1rem; margin-top: 0; }
+    p { margin: 8px 0; color: var(--text); }
+    .muted { color: var(--muted); }
+    .tag {
+      display: inline-block; padding: 4px 9px; border-radius: 999px;
+      background: rgba(124,196,255,.12); color: var(--accent);
+      border: 1px solid rgba(124,196,255,.22); margin: 3px 5px 0 0; font-size: .8rem;
+    }
+    .tag-endpoints { background: rgba(142,240,199,.1); color: #8ef0c7; border-color: rgba(142,240,199,.25); }
+    .tag-globaldata { background: rgba(255,211,122,.1); color: #ffd37a; border-color: rgba(255,211,122,.25); }
+    .tag-open { background: rgba(124,196,255,.12); color: var(--accent); border-color: rgba(124,196,255,.22); }
+    .tag-premium { background: rgba(200,150,255,.1); color: #c796ff; border-color: rgba(200,150,255,.25); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 18px; }
+    .card { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+    .bar { height: 12px; background: #1a2348; border-radius: 999px; overflow: hidden; margin: 8px 0 4px; }
+    .fill { height: 100%; }
+    .r { background: #ff8b8b; }
+    .y { background: #ffd37a; }
+    .g { background: #8ef0c7; }
+    .b { background: #7cc4ff; }
+    .label { display: flex; justify-content: space-between; font-size: .9rem; color: #cfe0ff; }
+    .small { font-size: .9rem; }
+    ul { padding-left: 18px; }
+    li { margin: 6px 0; }
+    .news-item {
+      background: rgba(255,255,255,.025); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px; margin: 12px 0;
+    }
+    .news-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; align-items: center; }
+    .news-title { font-size: 1rem; font-weight: 600; margin: 0 0 6px; }
+    .news-body { margin: 0; color: var(--muted); font-size: .9rem; }
+    .news-link { display: inline-block; margin-top: 8px; font-size: .88rem; color: var(--accent); }
+    .sources { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin-top: 26px; }
+    .update-banner {
+      background: rgba(124,196,255,.08); border: 1px solid rgba(124,196,255,.2);
+      border-radius: 12px; padding: 14px 18px; margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+    .update-banner strong { color: var(--accent); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .footer { margin-top: 30px; color: var(--muted); font-size: .92rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="update-banner">
+      <span><strong>Last full scan:</strong> April 1, 2026 &nbsp;|&nbsp; <strong>Coverage:</strong> Open web + Endpoints News + GlobalData</span>
+      <span class="tag tag-premium">🔒 Premium: Endpoints News &amp; GlobalData</span>
+    </div>
+
+    <section class="hero">
+      <div class="muted small">Visual Version • April 1, 2026</div>
+      <h1>Cell &amp; Gene Therapy Market Dashboard</h1>
+      <p class="muted">Simple visual readout from combined open-web, Endpoints, and GlobalData research.</p>
+      <div style="margin-top:12px">
+        <span class="tag tag-premium">🔒 Endpoints News</span>
+        <span class="tag tag-premium">🔒 GlobalData</span>
+        <span class="tag tag-open">🌐 Open Web</span>
+      </div>
+    </section>
+
+    <h2>Market Scorecard</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Strategic Interest</h3>
+        <div class="label"><span>High</span><span>8.5/10</span></div>
+        <div class="bar"><div class="fill g" style="width:85%"></div></div>
+        <p class="small">Big pharma continues to invest selectively in differentiated cell therapy and genetic medicine assets.</p>
+      </div>
+      <div class="card">
+        <h3>Regulatory Predictability</h3>
+        <div class="label"><span>Low-Medium</span><span>4/10</span></div>
+        <div class="bar"><div class="fill r" style="width:40%"></div></div>
+        <p class="small">Approvals still happen, but reversals, holds, and inconsistent readouts keep uncertainty elevated.</p>
+      </div>
+      <div class="card">
+        <h3>Manufacturing Readiness</h3>
+        <div class="label"><span>Mixed</span><span>5/10</span></div>
+        <div class="bar"><div class="fill y" style="width:50%"></div></div>
+        <p class="small">Manufacturing remains a core bottleneck for approval timing, product launch, and supply continuity.</p>
+      </div>
+      <div class="card">
+        <h3>Commercial Scalability</h3>
+        <div class="label"><span>Developing</span><span>5.5/10</span></div>
+        <div class="bar"><div class="fill b" style="width:55%"></div></div>
+        <p class="small">Commercial traction is real, but delivery complexity still constrains growth curves.</p>
+      </div>
+    </div>
+
+    <h2>What's moving the market — with source labels</h2>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-endpoints">🔬 Endpoints News</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">Rocket Pharma — Kresladi FDA Accelerated Approval (LAD-I)</div>
+      <p class="news-body">FDA accelerated approval for severe LAD-I rare disease gene therapy. Shows the door is still open but manufacturing quality is a deciding variable.</p>
+      <a class="news-link" href="#">Read at Endpoints News 🔒</a>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-globaldata">📊 GlobalData</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">Regenxbio — RGX-121 FDA Rejection (Hunter Syndrome)</div>
+      <p class="news-body">FDA rejection reflecting skepticism around surrogate endpoints and historical controls. The regulatory burden in gene therapy remains very high.</p>
+      <a class="news-link" href="#">Read at GlobalData 🔒</a>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-endpoints">🔬 Endpoints News</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">Gilead / Arcellx — Premium Acquisition of Differentiated Cell Therapy</div>
+      <p class="news-body">Large strategic deal validates that buyers will pay heavily for cell therapy assets with better efficacy, safety, and market differentiation.</p>
+      <a class="news-link" href="#">Read at Endpoints News 🔒</a>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-open">🌐 Open Web</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">AstraZeneca — Shanghai Buildout Ties CGT Expansion to China</div>
+      <p class="news-body">Regional manufacturing and China strategy are now central to the future CGT operating model for major players.</p>
+      <a class="news-link" href="#">Open web source</a>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag tag-globaldata">📊 GlobalData</span>
+        <span class="tag">April 1, 2026</span>
+      </div>
+      <div class="news-title">Casgevy — Commercial Traction Improving, But Slowly</div>
+      <p class="news-body">Real demand for ex vivo gene-edited therapy, but long and burdensome delivery pathway continues to constrain the growth curve.</p>
+      <a class="news-link" href="#">Read at GlobalData 🔒</a>
+    </div>
+
+    <h2>Most Important Visual Takeaway</h2>
+    <div class="card">
+      <p><strong>The sector is healthy enough to attract strategic investment, but unhealthy enough operationally that execution quality now determines winners and losers.</strong></p>
+    </div>
+
+    <div class="sources" id="traceability">
+      <h2 style="margin-top:0;border-top:none;padding-top:0;">Sources & Traceability</h2>
+      <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Each news item above is tagged with its source. 🔒 items require a subscription login.</p>
+      <ul>
+        <li><strong>🔬 Endpoints News</strong> — enterprise subscription; original article links available via Endpoints News login</li>
+        <li><strong>📊 GlobalData</strong> — pharma intelligence subscription; original article links available via GlobalData login</li>
+        <li><strong>🌐 Open Web</strong> — freely accessible original reporting or press releases</li>
+      </ul>
+      <p>This visual dashboard is a synthesized summary built from the broader research set.</p>
+    </div>
+
+    <div class="footer">
+      Prepared by Coco • CGT bulletin site • auto-refresh enabled every 30 min
+    </div>
+  </div>
+<footer style='max-width:1080px;margin:20px auto 40px;padding:0 20px;color:#a9b6d3;font-family:Inter,system-ui,sans-serif'>Last updated: April 7, 2026 08:30 AM EDT</footer></body>
+</html>
