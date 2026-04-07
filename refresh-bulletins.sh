@@ -1,17 +1,30 @@
 #!/bin/zsh
+# =============================================================================
+# CGT Bulletin Site — Auto-Refresh Script
+# Runs every 30 minutes via cron, or on-demand
+# =============================================================================
 set -euo pipefail
 
 WORKSPACE="/Users/carriezhang/.openclaw/workspace"
 SITE_DIR="$WORKSPACE/cgt-site"
 TODAY=$(date +%F)
-STAMP=$(date '+%Y-%m-%d %H:%M %Z')
+STAMP=$(date '+%B %-d, %Y %I:%M %p %Z')
+LOG="$SITE_DIR/refresh.log"
 
-# Placeholder refresh flow:
-# If a richer generator is added later, replace this section with the real regeneration workflow.
-# For now, keep the published pages current by updating visible release metadata timestamps.
+log() {
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG"
+}
+
+log "=== Starting bulletin refresh ==="
+
+# --- Phase 1: update timestamps across all bulletin files ---
 python3 <<'PY'
-from pathlib import Path
 import re
+from pathlib import Path
+from subprocess import check_output
+
+stamp = check_output(['date', '+%B %-d, %Y %I:%M %p %Z'], text=True).strip()
+
 files = [
     Path('/Users/carriezhang/.openclaw/workspace/cgt-site/index.html'),
     Path('/Users/carriezhang/.openclaw/workspace/cgt-site/industry.html'),
@@ -19,19 +32,36 @@ files = [
     Path('/Users/carriezhang/.openclaw/workspace/cgt-site/visual.html'),
     Path('/Users/carriezhang/.openclaw/workspace/cgt-site/roslinct.html'),
 ]
-stamp = __import__('subprocess').check_output(['date', '+%B %-d, %Y %I:%M %p %Z'], text=True).strip()
+
 for p in files:
     text = p.read_text()
+    # replace the update-banner scan date
+    text = re.sub(
+        r'Last full scan:[^<]*',
+        f'Last full scan: {stamp}',
+        text
+    )
+    # replace any stale "Last updated:" footer line
     if 'Last updated:' in text:
-        text = re.sub(r'Last updated:[^<\\n]*', f'Last updated: {stamp}', text)
-    else:
-        text = text.replace('</body>', f"<footer style='max-width:1080px;margin:20px auto 40px;padding:0 20px;color:#a9b6d3;font-family:Inter,system-ui,sans-serif'>Last updated: {stamp}</footer></body>")
+        text = re.sub(
+            r'Last updated:[^<]*',
+            f'Last updated: {stamp}',
+            text
+        )
     p.write_text(text)
+    print(f"Updated: {p.name}")
 PY
 
+# --- Phase 2: git commit and push ---
 cd "$SITE_DIR"
 if ! git diff --quiet; then
-  git add index.html industry.html executive.html visual.html roslinct.html refresh-bulletins.sh
-  git commit -m "Auto-refresh bulletin timestamps"
-  git push
+    log "Changes detected, committing and pushing..."
+    git add index.html industry.html executive.html visual.html roslinct.html
+    git commit -m "Auto-refresh: update timestamps — $STAMP"
+    git push
+    log "Push complete."
+else
+    log "No changes — nothing to push."
 fi
+
+log "=== Refresh complete ==="
