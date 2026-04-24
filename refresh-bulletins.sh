@@ -41,8 +41,8 @@ for p in files:
     text = re.sub(r'(<span class="chip">)Latest scan:[^<]*', f'\\1Latest scan: {stamp_short}', text)
     # Update "Release date:" chips on all pages
     text = re.sub(r'(<span class="chip">)Release date:[^<]*', f'\\1Release date: {stamp_short}', text)
-    # Update the banner "Auto-refreshed:" timestamp
-    text = re.sub(r'(<span><strong>)Auto-refreshed:[^<]*', f'\\1Auto-refreshed: {stamp_full}', text)
+    # Update the banner "Auto-refreshed:" timestamp and remove any stale trailing timestamp text
+    text = re.sub(r'<span><strong>Auto-refreshed:[^<]*</strong>[^<]*</span>', f'<span><strong>Auto-refreshed: {stamp_full}</strong></span>', text)
     # Remove any stale "Last updated:" footer lines
     text = re.sub(r'<footer[^>]*>Last updated:[^<]*</footer>', '', text)
     p.write_text(text)
