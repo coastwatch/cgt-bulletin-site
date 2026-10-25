@@ -57,8 +57,15 @@ if ! git diff --quiet; then
     log "Changes detected, committing and pushing..."
     git add index.html industry.html executive.html visual.html roslinct.html
     git commit -m "Auto-refresh: update all timestamps — $(date '+%Y-%m-%d %H:%M')"
-    git push
-    log "Push complete."
+    # Never let a missing/expired credential break the cron run silently.
+    # GIT_TERMINAL_PROMPT=0 makes git fail fast with a clear error instead of hanging.
+    if GIT_TERMINAL_PROMPT=0 git push origin main 2>&1 | tee -a "$LOG"; then
+        log "Push complete."
+    else
+        log "PUSH FAILED — content is committed locally but not deployed."
+        log "Diagnose with: git config --list --show-origin | grep credential"
+        log "See learned skill 'github-push-credential-repair'."
+    fi
 else
     log "No content changes — nothing to push."
 fi
