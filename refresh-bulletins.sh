@@ -43,6 +43,11 @@ for p in files:
     text = re.sub(r'(<span class="chip">)Release date:[^<]*', f'\\1Release date: {stamp_short}', text)
     # Update the banner "Auto-refreshed:" timestamp and remove any stale trailing timestamp text
     text = re.sub(r'<span><strong>Auto-refreshed:[^<]*</strong>[^<]*</span>', f'<span><strong>Auto-refreshed: {stamp_full}</strong></span>', text)
+    # Update the "• <Month D, YYYY>" version label in the hero of each page
+    # (e.g. "Executive Version \u2022 April 1, 2026"). Without this the version
+    # label goes stale while the item dates below it move on.
+    text = re.sub(r'(<div class="muted[^"]*">[^<]*\u2022 )[A-Z][a-z]+ \d+, \d{4}(</div>)',
+                  rf'\g<1>{stamp_short}\g<2>', text)
     # Remove any stale "Last updated:" footer lines
     text = re.sub(r'<footer[^>]*>Last updated:[^<]*</footer>', '', text)
     p.write_text(text)
