@@ -59,7 +59,14 @@ if ! git diff --quiet; then
     git commit -m "Auto-refresh: update all timestamps — $(date '+%Y-%m-%d %H:%M')"
     # Never let a missing/expired credential break the cron run silently.
     # GIT_TERMINAL_PROMPT=0 makes git fail fast with a clear error instead of hanging.
-    if GIT_TERMINAL_PROMPT=0 git push origin main 2>&1 | tee -a "$LOG"; then
+    # Credential fallback: the macOS keychain is not reliably reachable from the
+    # cron/launchd context, so prefer an explicit 0600 credential file when present.
+    CRED_FILE="/Users/carriezhang/.openclaw/credentials/github/git-credentials-coastwatch"
+    GIT_ENV=()
+    if [[ -r "$CRED_FILE" ]]; then
+        GIT_ENV=(-c "credential.https://github.com.helper=store --file=$CRED_FILE")
+    fi
+    if GIT_TERMINAL_PROMPT=0 git "${GIT_ENV[@]}" push origin main 2>&1 | tee -a "$LOG"; then
         log "Push complete."
     else
         log "PUSH FAILED — content is committed locally but not deployed."
